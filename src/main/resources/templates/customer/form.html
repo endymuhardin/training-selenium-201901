@@ -16,22 +16,22 @@
                         <div class="form-group row">
                             <label for="inputFullname" class="col-sm-4 col-form-label">Nama Lengkap</label>
                             <div class="col-sm-8">
-                                <input th:field="*{fullname}" id="inputFullname" type="text" class="form-control is-invalid" placeholder="Nama Lengkap">
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                </div>
+                                <input th:field="*{fullname}" id="inputFullname" type="text" class="form-control" th:errorclass="is-invalid" placeholder="Nama Lengkap">
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}"></div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputEmail" class="col-sm-4 col-form-label">Email</label>
                             <div class="col-sm-8">
-                                <input th:field="*{email}" type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                <input th:field="*{email}" type="email" class="form-control" th:errorclass="is-invalid" id="inputEmail" placeholder="Email">
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputMobile" class="col-sm-4 col-form-label">No HP</label>
                             <div class="col-sm-8">
-                                <input th:field="*{mobilePhone}" id="inputMobile" type="text" class="form-control" placeholder="+62xxxxxxx">
+                                <input th:field="*{mobilePhone}" id="inputMobile" type="text" class="form-control" th:errorclass="is-invalid" placeholder="+62xxxxxxx">
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('mobilePhone')}" th:errors="*{mobilePhone}"></div>
                             </div>
                         </div>
                         <fieldset class="form-group">
@@ -39,10 +39,11 @@
                                 <legend class="col-form-label col-sm-4 pt-0">Jenis Kelamin</legend>
                                 <div class="col-sm-8">
                                     <div class="form-check" th:each="g : ${T(com.muhardin.endy.belajar.selenium.entity.Gender).values()}">
-                                        <input class="form-check-input" type="radio" th:field="*{gender}" th:value="${g}">
+                                        <input class="form-check-input" th:errorclass="is-invalid" type="radio" th:field="*{gender}" th:value="${g}">
                                         <label class="form-check-label" th:for="${#ids.prev('gender')}" th:text="${g}">
                                             Pria
                                         </label>
+                                        <div class="invalid-feedback" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></div>
                                     </div>
                                 </div>
                             </div>
@@ -50,17 +51,20 @@
                         <div class="form-group row">
                             <label for="education" class="col-sm-4 col-form-label">Pendidikan</label>
                             <div class="col-sm-8">
-                                <select class="form-control" th:field="*{education}" id="education">
+                                <select class="form-control" th:errorclass="is-invalid" th:field="*{education}" id="education">
+                                    <option value="">Pilih tingkat pendidikan terakhir</option>
                                     <option th:each="edu : ${T(com.muhardin.endy.belajar.selenium.entity.Education).values()}"
                                             th:value="${edu}"
                                             th:text="${edu}">Default select</option>
                                 </select>
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('education')}" th:errors="*{education}"></div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputTanggalLahir" class="col-sm-4 col-form-label">Tanggal Lahir</label>
                             <div class="col-sm-8">
-                                <input th:field="*{birthdate}" id="inputTanggalLahir" type="text" class="form-control" placeholder="yyyy-MM-dd">
+                                <input th:field="*{birthdate}" id="inputTanggalLahir" type="text" class="form-control" th:errorclass="is-invalid" placeholder="yyyy-MM-dd">
+                                <div class="invalid-feedback" th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}"></div>
                             </div>
                         </div>
                         <div class="form-group row">
