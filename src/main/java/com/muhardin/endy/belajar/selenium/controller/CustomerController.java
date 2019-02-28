@@ -35,7 +35,7 @@ public class CustomerController {
         System.out.println("Birthdate " + customer.getBirthdate());
         
         if(errors.hasErrors()){
-            return "/customer/form";
+            return "customer/form";
         }
         
         customerDao.save(customer);
