@@ -87,7 +87,7 @@ public class InputCustomerTests {
             }
         });
         
-        Assert.assertTrue("Harusnya keluar pesan tidak boleh kosong", form.namaLengkapError("must not be empty"));
+        Assert.assertTrue("Harusnya keluar pesan tidak boleh kosong", form.namaLengkapError("Nama harus diisi"));
         Assert.assertTrue("Harusnya keluar pesan panjang nama kurang", form.namaLengkapError("size must be between 3"));
         
     }
@@ -118,7 +118,7 @@ public class InputCustomerTests {
         });
         
         Assert.assertFalse("Pesan error kosong harusnya tidak tampil, karena ada inputan 1 huruf", 
-                form.namaLengkapError("must not be empty"));
+                form.namaLengkapError("Nama harus diisi"));
         Assert.assertTrue(form.namaLengkapError("size must be between 3"));
         
     }
