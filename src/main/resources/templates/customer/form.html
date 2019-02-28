@@ -57,7 +57,12 @@
                                 </select>
                             </div>
                         </div>
-                  
+                        <div class="form-group row">
+                            <label for="inputTanggalLahir" class="col-sm-4 col-form-label">Tanggal Lahir</label>
+                            <div class="col-sm-8">
+                                <input th:field="*{birthdate}" id="inputTanggalLahir" type="text" class="form-control" placeholder="yyyy-MM-dd">
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <div class="col-sm-8">
                                 <button id="simpanCustomer" type="submit" class="btn btn-primary">Simpan</button>
