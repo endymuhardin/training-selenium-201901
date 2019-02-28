@@ -4,7 +4,7 @@ create table customer (
     email varchar(100) not null,
     mobile_phone varchar(20) not null,
     birthdate date not null,
-    sex varchar(10) not null,
+    gender varchar(10) not null,
     education varchar(10),
     primary key (id),
     unique (email),
