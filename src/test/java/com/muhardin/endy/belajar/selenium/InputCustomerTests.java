@@ -6,6 +6,7 @@ import com.muhardin.endy.belajar.selenium.entity.Gender;
 import com.muhardin.endy.belajar.selenium.pageobject.CustomerForm;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
+import java.util.Random;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -19,6 +20,7 @@ public class InputCustomerTests {
     
     private Faker faker = new Faker();
     private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    private Random random = new Random();
     
     @BeforeClass
     public static void bukaBrowser(){
@@ -43,8 +45,8 @@ public class InputCustomerTests {
         form.isiEmail(firstname+"@"+faker.internet().domainName());
         form.isiNoHp(faker.phoneNumber().cellPhone());
         form.isiTanggalLahir(formatter.format(faker.date().birthday()));
-        form.pilihGender(Gender.FEMALE);
-        form.pilihPendidikan(Education.Sarjana);
+        form.pilihGender(Gender.values()[random.nextInt(Gender.values().length)]);
+        form.pilihPendidikan(Education.values()[random.nextInt(Education.values().length)]);
         
         Thread.sleep(10 * 1000);
         form.simpanData();
