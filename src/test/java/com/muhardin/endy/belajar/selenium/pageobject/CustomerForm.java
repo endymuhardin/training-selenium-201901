@@ -2,6 +2,7 @@ package com.muhardin.endy.belajar.selenium.pageobject;
 
 import com.muhardin.endy.belajar.selenium.entity.Education;
 import com.muhardin.endy.belajar.selenium.entity.Gender;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,6 +34,17 @@ public class CustomerForm {
     
     @FindBy(id="simpanCustomer")
     private WebElement tombolSimpan;
+    
+    @FindBy(xpath = "/html/body/div[1]/div/main/div/div/div/div/form/div[1]/div/div")
+    private WebElement pesanErrorNama;
+    
+    public Boolean namaLengkapError(String pesanError){
+        try {
+            return pesanErrorNama.isDisplayed() && pesanErrorNama.getText().contains(pesanError);
+        } catch (NoSuchElementException err) {
+            return false;
+        }
+    }
     
     public void isiNama(String nama){
         fullname.sendKeys(nama);

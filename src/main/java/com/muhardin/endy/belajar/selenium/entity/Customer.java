@@ -27,7 +27,7 @@ public class Customer {
     @NotEmpty @Size(min = 6) @Email
     private String email;
     
-    @NotEmpty @Size(min = 5, max = 13)
+    @NotEmpty @Size(min = 5, max = 20)
     private String mobilePhone;
     
     @NotNull @Past

@@ -8,10 +8,14 @@ import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class InputCustomerTests {
     private static final String SERVER_BASE_URL = "https://training-selenium.herokuapp.com";
@@ -48,7 +52,74 @@ public class InputCustomerTests {
         form.pilihGender(Gender.values()[random.nextInt(Gender.values().length)]);
         form.pilihPendidikan(Education.values()[random.nextInt(Education.values().length)]);
         
-        Thread.sleep(10 * 1000);
+        //Thread.sleep(10 * 1000);
         form.simpanData();
+        
+        (new WebDriverWait(webDriver, 10)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return d.getTitle().toLowerCase().equalsIgnoreCase("Data Customer");
+            }
+        });
+    }
+    
+    @Test
+    public void testInputNamaKosong() throws Exception {
+        webDriver.get(SERVER_BASE_URL + "/customer/form");
+        
+        CustomerForm form = new CustomerForm(webDriver);
+        
+        String firstname = faker.name().firstName();
+        String lastname = faker.name().lastName();
+      
+        //form.isiNama("a");
+        form.isiEmail(firstname+"@"+faker.internet().domainName());
+        form.isiNoHp(faker.phoneNumber().cellPhone());
+        form.isiTanggalLahir(formatter.format(faker.date().birthday()));
+        form.pilihGender(Gender.values()[random.nextInt(Gender.values().length)]);
+        form.pilihPendidikan(Education.values()[random.nextInt(Education.values().length)]);
+        
+        //Thread.sleep(5 * 1000);
+        form.simpanData();
+        
+        (new WebDriverWait(webDriver, 10)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return d.getTitle().toLowerCase().equalsIgnoreCase("Edit Customer");
+            }
+        });
+        
+        Assert.assertTrue("Harusnya keluar pesan tidak boleh kosong", form.namaLengkapError("must not be empty"));
+        Assert.assertTrue("Harusnya keluar pesan panjang nama kurang", form.namaLengkapError("size must be between 3"));
+        
+    }
+    
+    @Test
+    public void testInputNamaPendek() throws Exception {
+        webDriver.get(SERVER_BASE_URL + "/customer/form");
+        
+        CustomerForm form = new CustomerForm(webDriver);
+        
+        String firstname = faker.name().firstName();
+        String lastname = faker.name().lastName();
+      
+        form.isiNama("a");
+        form.isiEmail(firstname+"@"+faker.internet().domainName());
+        form.isiNoHp(faker.phoneNumber().cellPhone());
+        form.isiTanggalLahir(formatter.format(faker.date().birthday()));
+        form.pilihGender(Gender.values()[random.nextInt(Gender.values().length)]);
+        form.pilihPendidikan(Education.values()[random.nextInt(Education.values().length)]);
+        
+        //Thread.sleep(5 * 1000);
+        form.simpanData();
+        
+        (new WebDriverWait(webDriver, 10)).until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return d.getTitle().toLowerCase().equalsIgnoreCase("Edit Customer");
+            }
+        });
+        
+        Assert.assertFalse("Pesan error kosong harusnya tidak tampil, karena ada inputan 1 huruf", 
+                form.namaLengkapError("must not be empty"));
+        Assert.assertTrue(form.namaLengkapError("size must be between 3"));
+        
     }
 }
