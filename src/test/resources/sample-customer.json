@@ -14,5 +14,157 @@
         "birthdate": "2010-10-02",
         "gender": "MALE",
         "education": "SD"
+    },
+    {
+        "fullname": "Customer 003",
+        "email": "cust003@gmail.com",
+        "mobilePhone": "0812345678903",
+        "birthdate": "2010-10-03",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 004",
+        "email": "cust004@gmail.com",
+        "mobilePhone": "0812345678904",
+        "birthdate": "2010-10-04",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 005",
+        "email": "cust005@gmail.com",
+        "mobilePhone": "0812345678905",
+        "birthdate": "2010-10-05",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 006",
+        "email": "cust006@gmail.com",
+        "mobilePhone": "0812345678906",
+        "birthdate": "2010-10-06",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 007",
+        "email": "cust007@gmail.com",
+        "mobilePhone": "0812345678907",
+        "birthdate": "2010-10-07",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 008",
+        "email": "cust008@gmail.com",
+        "mobilePhone": "0812345678908",
+        "birthdate": "2010-10-08",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 009",
+        "email": "cust009@gmail.com",
+        "mobilePhone": "0812345678909",
+        "birthdate": "2010-10-09",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 010",
+        "email": "cust010@gmail.com",
+        "mobilePhone": "0812345678910",
+        "birthdate": "2010-10-10",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 011",
+        "email": "cust011@gmail.com",
+        "mobilePhone": "0812345678911",
+        "birthdate": "2010-10-11",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 012",
+        "email": "cust012@gmail.com",
+        "mobilePhone": "0812345678912",
+        "birthdate": "2010-10-12",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 013",
+        "email": "cust013@gmail.com",
+        "mobilePhone": "0812345678913",
+        "birthdate": "2010-10-13",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 014",
+        "email": "cust014@gmail.com",
+        "mobilePhone": "0812345678914",
+        "birthdate": "2010-10-14",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 015",
+        "email": "cust015@gmail.com",
+        "mobilePhone": "0812345678915",
+        "birthdate": "2010-10-15",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 016",
+        "email": "cust016@gmail.com",
+        "mobilePhone": "0812345678916",
+        "birthdate": "2010-10-16",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 017",
+        "email": "cust017@gmail.com",
+        "mobilePhone": "0812345678917",
+        "birthdate": "2010-10-07",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 018",
+        "email": "cust018@gmail.com",
+        "mobilePhone": "0812345678918",
+        "birthdate": "2010-10-18",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 019",
+        "email": "cust019@gmail.com",
+        "mobilePhone": "0812345678919",
+        "birthdate": "2010-10-19",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 020",
+        "email": "cust020@gmail.com",
+        "mobilePhone": "0812345678920",
+        "birthdate": "2010-10-20",
+        "gender": "MALE",
+        "education": "SD"
+    },
+    {
+        "fullname": "Customer 021",
+        "email": "cust021@gmail.com",
+        "mobilePhone": "0812345678921",
+        "birthdate": "2010-10-21",
+        "gender": "MALE",
+        "education": "SD"
     }
 ]

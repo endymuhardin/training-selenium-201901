@@ -1,5 +1,7 @@
 package com.muhardin.endy.belajar.selenium;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.muhardin.endy.belajar.selenium.entity.Customer;
 import com.muhardin.endy.belajar.selenium.entity.Education;
 import com.muhardin.endy.belajar.selenium.entity.Gender;
 import com.muhardin.endy.belajar.selenium.pageobject.CustomerForm;
@@ -7,6 +9,7 @@ import java.text.SimpleDateFormat;
 import junitparams.FileParameters;
 import junitparams.JUnitParamsRunner;
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,24 +17,49 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.web.client.RestTemplate;
 
 @RunWith(JUnitParamsRunner.class)
 public class InputCustomerParameterizedTests {
     
     private static final String SERVER_BASE_URL = "https://training-selenium.herokuapp.com";
+    private static Customer[] sampleDataCustomer;
+    
     private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
     
     private static WebDriver webDriver;
     
     @BeforeClass
-    public static void bukaBrowser(){
+    public static void bukaBrowser() throws Exception {
         webDriver = new FirefoxDriver();
+        System.out.println("Membaca sample data");
+        ObjectMapper objectMapper = new ObjectMapper();
+        sampleDataCustomer = objectMapper
+                .readValue(
+                        InputCustomerParameterizedTests.class
+                                .getResourceAsStream("/sample-customer.json"), 
+                        Customer[].class);
     }
     
     @AfterClass
     public static void tutupBrowser(){
         webDriver.quit();
     }
+    
+    @Before
+    public void resetDatabase() throws Exception {
+        System.out.println("Reset database sesuai sample data");
+        RestTemplate restClient = new RestTemplate();
+        restClient.postForObject(SERVER_BASE_URL+"/devtools/db/customer", 
+                sampleDataCustomer, Object.class);
+        System.out.println("Selesai");
+    }
+    
+    //@Test
+    public void testHelloWorld(){
+        System.out.println("Hello World");
+    }
+    
     
     @Test
     @FileParameters("src/test/resources/test-form-customer.csv")
