@@ -18,9 +18,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -38,8 +40,11 @@ public class RemoteExecutionTests {
     
     @BeforeClass
     public static void inisialisasi() throws MalformedURLException{
-        DesiredCapabilities capabilities = new DesiredCapabilities(new SafariOptions());
+        //DesiredCapabilities capabilities = new DesiredCapabilities(new SafariOptions());
         //DesiredCapabilities capabilities = new DesiredCapabilities(new ChromeOptions());
+        DesiredCapabilities capabilities = new DesiredCapabilities(new FirefoxOptions());
+        capabilities.setPlatform(Platform.WINDOWS);
+        
         webDriver = new RemoteWebDriver(new URL(SELENIUM_HUB), capabilities);
         
         sampleDataCustomer = new Customer[]{

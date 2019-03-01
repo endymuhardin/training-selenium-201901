@@ -19,8 +19,13 @@ Outputnya seperti ini
 
 Buka console manajemen di [http://192.168.1.187:4444/grid/console](http://192.168.1.187:4444/grid/console)
 
+[![Hub Console](docs/img/hub-console-1.png)](docs/img/hub-console-1.png)
+
 Menjalankan Selenium Server sebagai Node
 
         java -jar selenium-server-standalone-3.141.59.jar -role webdriver -hub http://
 192.168.1.187:4444/grid/register -port 10000
 
+Setelah terdaftar, akan terlihat di tampilan console hub
+
+[![Hub Console Node](docs/img/hub-console-2.png)](docs/img/hub-console-2.png)
