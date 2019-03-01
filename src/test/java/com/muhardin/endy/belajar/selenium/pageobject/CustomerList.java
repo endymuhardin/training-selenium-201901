@@ -29,6 +29,6 @@ public class CustomerList {
     }
     
     public Boolean cekNamaCustomerBaru(String nama){
-        return nama.equals(namaCustomerBaru.getText())
+        return nama.equals(namaCustomerBaru.getText());
     }
 }
