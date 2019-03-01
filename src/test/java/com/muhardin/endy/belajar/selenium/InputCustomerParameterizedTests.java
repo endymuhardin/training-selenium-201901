@@ -116,10 +116,11 @@ public class InputCustomerParameterizedTests {
             form.cekJudul("Edit Customer");
             
             String[] errors = pesanError.split("\\|");
-            System.out.println("Pesan error setelah split : "+errors);
+            
             for(String e : errors){
+                System.out.println("Pesan error setelah split : "+e);
                 String errorActual = form.fieldError(fieldError);
-                Assert.assertEquals(e, errorActual);
+                Assert.assertTrue("Pesan error "+e+" harus ada", errorActual.contains(e));
             }
         }
         
