@@ -23,8 +23,7 @@ Buka console manajemen di [http://192.168.1.187:4444/grid/console](http://192.16
 
 Menjalankan Selenium Server sebagai Node
 
-        java -jar selenium-server-standalone-3.141.59.jar -role webdriver -hub http://
-192.168.1.187:4444/grid/register -port 10000
+        java -jar selenium-server-standalone-3.141.59.jar -role webdriver -hub http://192.168.1.187:4444/grid/register -port 10000
 
 Setelah terdaftar, akan terlihat di tampilan console hub
 
