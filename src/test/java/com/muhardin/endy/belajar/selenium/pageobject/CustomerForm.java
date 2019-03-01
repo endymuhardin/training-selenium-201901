@@ -11,6 +11,9 @@ import org.openqa.selenium.support.ui.Select;
 
 public class CustomerForm {
     
+    @FindBy(xpath = "/html/body/div[1]/div/main/div/div/h1")
+    private WebElement judulScreen;
+    
     @FindBy(name = "fullname")
     private WebElement fullname;
     
@@ -38,12 +41,30 @@ public class CustomerForm {
     @FindBy(xpath = "/html/body/div[1]/div/main/div/div/div/div/form/div[1]/div/div")
     private WebElement pesanErrorNama;
     
-    public Boolean namaLengkapError(String pesanError){
-        try {
-            return pesanErrorNama.isDisplayed() && pesanErrorNama.getText().contains(pesanError);
-        } catch (NoSuchElementException err) {
-            return false;
+    @FindBy(xpath = "/html/body/div[1]/div/main/div/div/div/div/form/div[2]/div/div")
+    private WebElement pesanErrorEmail;
+    
+    public Boolean cekJudul(String judul){
+        return judul.equals(judulScreen.getText());
+    }
+    
+    public String fieldError(String namaField) {
+        
+        WebElement field = null;
+        
+        if("fullname".equals(namaField)) {
+            field = pesanErrorNama;
         }
+        
+        if("email".equals(namaField)) {
+            field = pesanErrorEmail;
+        }
+        
+        if(field == null) {
+            return null;
+        }
+        
+        return field.getText();
     }
     
     public void isiNama(String nama){
