@@ -1,0 +1,18 @@
+[
+    {
+        "fullname": "Customer 001",
+        "email": "cust001@gmail.com",
+        "mobilePhone": "0812345678901",
+        "birthdate": "2010-10-01",
+        "gender": "MALE",
+        "education": "SMP"
+    },
+    {
+        "fullname": "Customer 002",
+        "email": "cust002@gmail.com",
+        "mobilePhone": "0812345678902",
+        "birthdate": "2010-10-02",
+        "gender": "MALE",
+        "education": "SD"
+    }
+]
