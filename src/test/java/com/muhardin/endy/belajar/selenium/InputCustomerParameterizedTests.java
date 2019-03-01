@@ -5,10 +5,12 @@ import com.muhardin.endy.belajar.selenium.entity.Customer;
 import com.muhardin.endy.belajar.selenium.entity.Education;
 import com.muhardin.endy.belajar.selenium.entity.Gender;
 import com.muhardin.endy.belajar.selenium.pageobject.CustomerForm;
+import com.muhardin.endy.belajar.selenium.pageobject.CustomerList;
 import java.text.SimpleDateFormat;
 import junitparams.FileParameters;
 import junitparams.JUnitParamsRunner;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -87,5 +89,20 @@ public class InputCustomerParameterizedTests {
                 return d.getTitle().toLowerCase().equalsIgnoreCase("Data Customer");
             }
         });
+        
+        
+        // sort by name
+        webDriver.get(SERVER_BASE_URL + "/customer/list?sort=fullname,desc");
+        
+        CustomerList halamanDataCustomer = new CustomerList(webDriver);
+        Assert.assertTrue("Judul halaman seharusnya Data Customer", 
+                halamanDataCustomer.periksaTitle("Data Customer"));
+        
+        Assert.assertTrue("Jumlah record harusnya 22", 
+                halamanDataCustomer.jumlahRecord(22));
+        
+        Assert.assertTrue("Yang barusan diinsert harusnya muncul paling atas",
+                halamanDataCustomer.cekNamaCustomerBaru(nama));
+        
     }
 }
