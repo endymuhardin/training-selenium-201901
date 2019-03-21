@@ -5,6 +5,7 @@ import com.muhardin.endy.belajar.selenium.entity.Customer;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -22,7 +23,7 @@ public class CustomerController {
     @Autowired private CustomerDao customerDao;
     
     @GetMapping("/list")
-    public ModelMap dataCustomer(Pageable page){
+    public ModelMap dataCustomer(@PageableDefault(sort = "fullname") Pageable page){
         return new ModelMap().addAttribute("dataCustomer", customerDao.findAll(page));
     }
     
