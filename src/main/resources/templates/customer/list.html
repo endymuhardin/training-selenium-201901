@@ -24,6 +24,7 @@
                             <th>Gender</th>
                             <th>Education</th>
                             <th>Birthdate</th>
+                            <th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +34,11 @@
                             <td th:text="${cust.mobilePhone}">ipsum</td>
                             <td th:text="${cust.gender}">dolor</td>
                             <td th:text="${cust.education}">sit</td>
-                            <td th:text="${cust.birthdate}">sit</td>
+                            <td th:text="${cust.birthdate}">sit</td>\
+                            <td>
+                                <a th:href="@{/customer/form(id=${cust.id})}" class="btn btn-sm">edit</a>
+                                <a th:href="@{/customer/delete(id=${cust.id})}" class="btn btn-sm">delete</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
