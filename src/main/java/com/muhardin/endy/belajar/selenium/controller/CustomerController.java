@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
@@ -26,8 +27,11 @@ public class CustomerController {
     }
     
     @GetMapping("/form")
-    public ModelMap displayFormEdit(){
-        return new ModelMap().addAttribute(new Customer());
+    public ModelMap displayFormEdit(@RequestParam(required = false, name = "id") Customer c){
+        if(c == null){
+            c = new Customer();
+        }
+        return new ModelMap().addAttribute(c);
     }
     
     @PostMapping("/form")
