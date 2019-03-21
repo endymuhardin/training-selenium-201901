@@ -26,6 +26,15 @@ public class CustomerController {
         return new ModelMap().addAttribute("dataCustomer", customerDao.findAll(page));
     }
     
+    @GetMapping("/delete")
+    public String deleteCustomer(@RequestParam(required = false, name = "id") Customer c){
+        if(c != null){
+            customerDao.delete(c);
+        }
+        
+        return "redirect:list";
+    }
+    
     @GetMapping("/form")
     public ModelMap displayFormEdit(@RequestParam(required = false, name = "id") Customer c){
         if(c == null){
